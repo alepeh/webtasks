@@ -120,7 +120,7 @@ var filter = function(documents, date){
 	}
   return filteredDocuments;
 };
-module.exports = Webtask.fromExpress(server);
+module.exports = Webtask.fromExpress(server).auth0();
 
 
 
