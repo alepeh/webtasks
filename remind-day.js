@@ -120,11 +120,11 @@ var filter = function(documents, date){
 	}
   return filteredDocuments;
 };
-module.exports = Webtask.fromExpress(server).auth0();
-
-
-
-
+module.exports = Webtask.fromExpress(server).auth0({
+  authorized: [
+    '@pehm.biz', 
+  ]
+});
 
 
 
