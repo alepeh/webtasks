@@ -122,7 +122,7 @@ var filter = function(documents, date){
 };
 module.exports = Webtask.fromExpress(server).auth0({
   authorized: [
-    '@pehm.biz', 
+    'alexander@pehm.biz' 
   ]
 });
 
