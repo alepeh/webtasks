@@ -120,7 +120,9 @@ var filter = function(documents, date){
 	}
   return filteredDocuments;
 };
-module.exports = Webtask.fromExpress(server).auth0();
+//does not work - see https://auth0.com/forum/t/webtask-authentication-returns-unauthorized/5071
+//module.exports = Webtask.fromExpress(server).auth0();
+module.exports = Webtask.fromExpress(server);
 
 
 
