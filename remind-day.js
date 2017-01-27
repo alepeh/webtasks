@@ -115,7 +115,12 @@ var filter = function(documents, date){
 	for(var i=0;i<documents.length;i++){
 	  console.log("Erinnerung Time: " + moment(documents[i].datum).subtract(documents[i].erinnerung.zeitpunkt, 'days').startOf('day').format());
 	  if(moment(documents[i].datum).subtract(documents[i].erinnerung.zeitpunkt, 'days').startOf('day').format() === now){
-	    filteredDocuments.push(documents[i]);
+	    var doc = {};
+	    
+	    //Anzahl: 1203 ​ ​[{"_id":"58867efbf0e3fa6510fded21","datum":"2017-02-03T19:08:46.000Z","__v":0,"kehrplan":{"_id":"581226b62d4c44188d9fd6bd","hausNummer":"","hausNummerBis":"","hausNummerVon":"","ort":"580d1622de752368257a279e","name":"Siegendorf Tag04 Kleine Gasse","createdAt":"2016-10-27T16:09:26.000Z","termine":["581226de2d4c44188d9fd6be","58867efbf0e3fa6510fded21","58867f04f0e3fa6510fded22","58867f0df0e3fa6510fded23","58867f17f0e3fa6510fded24"],"__v":2,"strasse":"581063302d4c44188d9fd666"},"erinnerung":{"_id":"581227112d4c44188d9fd6bf","hausNummer":"8","ort":"580d1622de752368257a279e","createdAt":"2016-10-27T16:10:57.000Z","erinnerungPerSms":true,"erinnerungPerEmail":false,"name":{"last":"Popp","first":"Roman"},"__v":0,"email":"","kehrplan":"581226b62d4c44188d9fd6bd","strasse":"581063302d4c44188d9fd666","telefon":"06503876842","zeitpunkt":"7"},"strasse":[{"_id":"581063302d4c44188d9fd666","ort":"580d1622de752368257a279e","strasse":"Kleine Gasse","__v":0}],"ort":{"_id":"580d1622de752368257a279e","plz":"7011","ort":"Siegendorf","__v":0,"mitarbeiter":"58088bfe121b0919ee2ce319"},"mitarbeiter":[{"_id":"58088bfe121b0919ee2ce319","name":{"last":"Bauer","first":"Julius"},"__v":0,"telefon":"069910416567"}]}]
+	    
+	    doc.name = documents[i].erinnerung.name
+	    filteredDocuments.push(doc);
 	  }  
 	}
   return filteredDocuments;
