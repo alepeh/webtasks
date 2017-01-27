@@ -19,7 +19,7 @@ server.get('/:DateAsyyymmdd',  (req, res, next) => {
 
 server.get('/', (req, res, next) => {
   var MONGO_URL = req.webtaskContext.data;
-  var date = new Date(new Date().setDate(new Date(date).getDate()));
+  var date = new Date(new Date().setDate(new Date().getDate()));
   console.log("Requested Reminders for: " + date);
   query(MONGO_URL, date).then(result => {res.send(result)});
 });
